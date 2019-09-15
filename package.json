@@ -1,0 +1,68 @@
+{
+  "name": "@zhengxs/wechat-open-sdk",
+  "version": "0.0.0",
+  "description": "微信开放平台 SDK",
+  "keywords": [
+    "wechat",
+    "sdk"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -p tsconfig.json -w --preserveWatchOutput",
+    "doc": "typedoc --out dist-docs ./src",
+    "lint": "eslint \"{src,test}/**/*.ts\"",
+    "test": "jest",
+    "ci": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "clean": "rimraf .vscode/.tsbuildinfo dist dist-docs",
+    "prepare": "npm run lint && npm run clean && npm run build",
+    "deploy": "npm run doc && touch ./dist-docs/.nojekyll && gh-pages -d dist-docs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
+  "dependencies": {
+    "axios": "^0.19.0",
+    "fast-xml-parser": "^3.12.20",
+    "tslib": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^10.5.5",
+    "@typescript-eslint/eslint-plugin": "^2.1.0",
+    "@typescript-eslint/parser": "^2.1.0",
+    "coveralls": "^3.0.6",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.2.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "gh-pages": "^2.1.1",
+    "jest": "^24.9.0",
+    "power-assert": "^1.6.1",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.0.2",
+    "typedoc": "^0.15.0",
+    "typescript": "^3.6.2"
+  },
+  "engines": {
+    "node": ">=8.0"
+  },
+  "homepage": "https://github.com/zhengxsFE/wechat-open-sdk#readme",
+  "bugs": {
+    "url": "http://github.com/zhengxsFE/wechat-open-sdk/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/zhengxsFE/wechat-open-sdk.git"
+  },
+  "author": {
+    "name": "zhengxs",
+    "email": "zhengxs2018@gmail.com"
+  },
+  "license": "MIT"
+}
