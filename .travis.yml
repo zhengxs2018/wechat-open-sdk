@@ -23,11 +23,13 @@ deploy:
     local-dir: dist-docs
     target_branch: gh-pages
     on:
+      all_branches: true
       tags: true
   - provider: npm
     api_key: $NPM_TOKEN
     skip_cleanup: true
     on:
+      all_branches: true
       tags: true
 cache:
   directories:
