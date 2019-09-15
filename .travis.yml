@@ -23,7 +23,7 @@ deploy:
     local-dir: dist-docs
     target_branch: gh-pages
     on:
-      branch: master
+      tags: true
   - provider: npm
     api_key: $NPM_TOKEN
     skip_cleanup: true
