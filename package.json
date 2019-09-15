@@ -16,7 +16,8 @@
     "test": "jest",
     "ci": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "clean": "rimraf .vscode/.tsbuildinfo dist dist-docs",
-    "prepare": "npm run lint && npm run clean && npm run build"
+    "preversion": "npm run lint",
+    "prepare": "npm run clean && npm run build"
   },
   "publishConfig": {
     "access": "public"
@@ -49,7 +50,7 @@
   "engines": {
     "node": ">=8.0"
   },
-  "homepage": "https://github.com/zhengxsFE/wechat-open-sdk#readme",
+  "homepage": "https://zhengxsfe.github.io/wechat-open-sdk",
   "bugs": {
     "url": "http://github.com/zhengxsFE/wechat-open-sdk/issues"
   },

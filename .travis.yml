@@ -17,13 +17,18 @@ script:
 before_deploy:
   - touch dist-docs/.nojekyll
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local-dir: dist-docs
-  target_branch: gh-pages
-  on:
-    branch: master
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    local-dir: dist-docs
+    target_branch: gh-pages
+    on:
+      branch: master
+  - provider: npm
+    api_key: $NPM_TOKEN
+    skip_cleanup: true
+    on:
+      tags: true
 cache:
   directories:
     - node_modules
