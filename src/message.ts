@@ -103,8 +103,9 @@ export class Message {
 }
 
 export class AuthMessageParser extends Message {
-  parseXML<T>(message: string): T {
-    return this.parse(parseXML(message))
+  parseXML<T>(text: string): T {
+    const data = parseXML<any>(text)
+    return this.security ? this.parse(data) : data
   }
 
   parse<T>(data: IAuthMessageXML): T {
@@ -118,9 +119,10 @@ export class AuthMessageParser extends Message {
 
 export class PushMessageParser extends Message {
   parseXML<T extends IPushMessage>(
-    message: string
+    text: string
   ): { appId: string; message: T } {
-    return this.parse(parseXML(message))
+    const data = parseXML<any>(text)
+    return this.security ? this.parse(data) : data
   }
 
   parse<T extends IPushMessage>(
