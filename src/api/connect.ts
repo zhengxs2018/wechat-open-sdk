@@ -27,7 +27,7 @@ export function getOAuthURL(
   const params = url.searchParams
 
   params.set('appid', bizAppid)
-  params.set('redirect_uri', encodeURIComponent(redirectUri))
+  params.set('redirect_uri', redirectUri)
   params.set('response_type', 'code')
   params.set('scope', scope || 'snsapi_userinfo')
   params.set('state', state || pseudoRandomString())

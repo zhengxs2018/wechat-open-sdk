@@ -25,7 +25,7 @@ export function genAuthURL(
 
   params.set('component_appid', componentAppId)
   params.set('pre_auth_code', preAuthCode)
-  params.set('redirect_uri', encodeURIComponent(redirectUri))
+  params.set('redirect_uri', redirectUri)
   params.set('auth_type', authType.toString())
 
   if (typeof bizAppId === 'string') {
